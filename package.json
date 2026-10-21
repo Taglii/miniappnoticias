@@ -33,7 +33,8 @@
   },
   "devDependencies": {
     "@types/react": "~19.3.0",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "@types/react-native": "~0.64.12"
   },
   "scripts": {
     "start": "expo start",
