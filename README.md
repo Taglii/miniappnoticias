@@ -1,56 +1,90 @@
-# Welcome to your Expo app 👋
+# Mini App de Notícias — React Native & Expo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Projeto desenvolvido para a disciplina de Desenvolvimento Móvel, focado na implementação de estruturas de navegação complexas e encadeadas (Drawer, Bottom Tabs e Stack Navigation) utilizando React Native e Expo CLI.
 
-## Get started
+---
 
-1. Install dependencies
+## Objetivos do Projeto
 
-   ```bash
-   npm install
-   ```
+- Implementar uma arquitetura de navegação multi-nível sem a utilização do Expo Router.
+- Criar componentes reutilizáveis para exibição de listas dinâmicas.
+- Customizar dinamicamente o cabeçalho (Header) com o título da notícia selecionada.
+- Garantir uma experiência de usuário fluida em dispositivos Android e iOS.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## Arquitetura de Navegação
 
-In the output, you'll find options to open the app in a
+O aplicativo utiliza uma estrutura hierárquica de navegação composta por:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1. Drawer Navigator (Nível Raiz):
+   - Notícias: Acesso à tela principal de notícias.
+   - Sobre: Tela institucional com informações do projeto e botão de retorno.
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+2. Bottom Tab Navigator (Nível Intermediário):
+   - Tecnologia: Aba com listagem de notícias do setor tecnológico.
+   - Esportes: Aba com listagem de notícias do setor esportivo.
 
-## Get a fresh project
+3. Native Stack Navigator (Nível Interno):
+   - Gerencia a transição da lista de notícias (ListaScreen) para a leitura detalhada (DetalhesNoticiaScreen).
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## Estrutura do Projeto
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+```text
+MiniAppNoticias/
+├── assets/                  # Ícones e imagens do aplicativo
+├── src/
+│   ├── components/
+│   │   └── CardNoticia.js   # Componente reutilizável do card de notícia
+│   └── data/
+│       └── noticiasData.js  # Mapeamento e dados fictícios de notícias
+├── App.js                   # Configuração principal da navegação e telas
+├── app.json                 # Configurações do Expo
+├── package.json             # Dependências e scripts do projeto
+└── README.md                # Documentação do repositório
 
-### Other setup steps
+## Como Executar o Projeto
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Pré-requisitos
+Node.js instalado.
 
-## Learn more
+Android Studio com um emulador configurado (ex: Pixel 6) ou o aplicativo Expo Go no smartphone.
 
-To learn more about developing your project with Expo, look at the following resources:
+Passo a passo
+Clonar o repositório:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Bash
+git clone <LINK_DO_SEU_REPOSITORIO>
+cd MiniAppNoticias
+Instalar as dependências:
 
-## Join the community
+Bash
+npm install --legacy-peer-deps
+Iniciar o Metro Bundler:
 
-Join our community of developers creating universal apps.
+Bash
+npx expo start
+Executar na plataforma desejada:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Android: Pressione a no terminal (garanta que o emulador está aberto).
+
+iOS / Dispositivo Físico: Escaneie o QR Code gerado no terminal usando a câmera ou o app Expo Go.
+
+Tecnologias Utilizadas
+React Native (v0.72+)
+
+Expo (SDK)
+
+React Navigation
+
+@react-navigation/native
+
+@react-navigation/drawer
+
+@react-navigation/bottom-tabs
+
+@react-navigation/native-stack
+
+Expo Vector Icons (Ionicons, MaterialCommunityIcons)
