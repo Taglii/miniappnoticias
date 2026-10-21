@@ -4,20 +4,6 @@
     "slug": "MiniAppNoticias",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "miniappnoticias",
-    "userInterfaceStyle": "automatic",
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png"
-      }
-    },
-    "web": {
-      "favicon": "./assets/images/favicon.png"
-    }
+    "userInterfaceStyle": "light"
   }
 }

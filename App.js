@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -18,7 +20,6 @@ const StackEsportes = createNativeStackNavigator();
 function DetalhesNoticiaScreen({ route, navigation }) {
   const { noticia } = route.params;
 
-  // Customização dinâmica do título do Header (navigation.setOptions)
   useLayoutEffect(() => {
     navigation.setOptions({
       title: noticia.titulo,
@@ -179,30 +180,32 @@ function SobreScreen({ navigation }) {
 // --- DRAWER NAVIGATOR (RAIZ DO APP) ---
 export default function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Noticias">
-        <Drawer.Screen
-          name="Noticias"
-          component={NoticiasTabNavigator}
-          options={{
-            title: 'Notícias',
-            drawerIcon: ({ color, size }) => (
-              <Ionicons name="newspaper-outline" size={size} color={color} />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name="Sobre"
-          component={SobreScreen}
-          options={{
-            title: 'Sobre',
-            drawerIcon: ({ color, size }) => (
-              <Ionicons name="information-circle-outline" size={size} color={color} />
-            ),
-          }}
-        />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Noticias">
+          <Drawer.Screen
+            name="Noticias"
+            component={NoticiasTabNavigator}
+            options={{
+              title: 'Notícias',
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="newspaper-outline" size={size} color={color} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="Sobre"
+            component={SobreScreen}
+            options={{
+              title: 'Sobre',
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="information-circle-outline" size={size} color={color} />
+              ),
+            }}
+          />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 
